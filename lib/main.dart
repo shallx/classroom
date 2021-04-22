@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_classroom/controllers/post_controller.dart';
 import 'package:google_classroom/libraries/themedata.dart';
 import 'package:google_classroom/screens/experimentOne.dart';
+import 'package:google_classroom/screens/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: customTheme(ThemeProfile.light),
-      home: ExperimentOne()
+      home: HomeScreen(),
     );
   }
 }
