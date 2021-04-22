@@ -1,4 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'package:google_classroom/libraries/custom_exceptions.dart';
+import 'package:google_classroom/libraries/exceptions.dart';
 import 'package:google_classroom/services/api_dio.dart';
 
 class PostController extends GetxController {
@@ -27,17 +30,15 @@ class PostController extends GetxController {
   dynamic fetchApi() async {
     try {
       isLoading(true);
-      var response = await http.get("todos/300");
+      var response = await http.get("users/2");
       isLoading(false);
-
-      if (response.statusCode == 200) {
-        todos(response.data.toString());
-      } else {
-        return response.statusMessage;
-      }
-    } catch (error) {
+      todos(response.data.toString());
+    } on DioError catch (e) {
+      String message = DioExceptions.fromDioError(e).toString();
+      Get.snackbar("Error", message);
+      todos("");
+    } finally {
       isLoading(false);
-      return error.toString();
     }
   }
 }

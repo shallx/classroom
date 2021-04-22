@@ -45,10 +45,7 @@ class _ExperimentOneState extends State<ExperimentOne> {
                       ),
                       ElevatedButton(
                         onPressed: () async {
-                          var response = await controller.fetchApi();
-                          if (response != null) {
-                            Get.snackbar("Error!", response);
-                          }
+                          await controller.fetchApi();
                         },
                         child: Text("Get Data"),
                       ),

@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:google_classroom/libraries/custom_exceptions.dart';
 import 'package:google_classroom/libraries/statusCodes.dart';
 
 class ApiManager {
   late Dio _dio;
-  final baseUrl = "https://jsonplaceholder.typicode.com/";
+  final baseUrl = "https://reqres.in/api/";
   final Map<String, String> headers = {
     'Authorization': '',
     'Accept': 'application/json',
@@ -21,18 +22,9 @@ class ApiManager {
     late Response response;
     try {
       response = await _dio.get(endpoint);
-      if (response.data == {}) throw Exception("some error occured");
       return response;
-    } on DioError catch (e) {
-      if (e.type == DioErrorType.response) {
-        return Response(
-          statusCode: e.response!.statusCode,
-          statusMessage: StatusCode.message(e.response!.statusCode),
-          requestOptions: e.response!.requestOptions,
-        );
-      } else {
-        throw Exception(e.message);
-      }
+    } catch (e) {
+      throw e;
     }
   }
 }
