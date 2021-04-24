@@ -27,151 +27,153 @@ class ClassRoomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Column(
-        children: [
-          Material(
-            child: Container(
-              width: double.infinity,
-              margin: EdgeInsets.only(left: 10, bottom: 1),
-              height: 55,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: GoogleLogo(),
+    return SafeArea(
+      child: Drawer(
+        child: Column(
+          children: [
+            Material(
+              child: Container(
+                width: double.infinity,
+                margin: margin.leftMargin,
+                height: 55,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: GoogleLogo(),
+                ),
               ),
+              elevation: 1,
             ),
-            elevation: 1,
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          Material(
-            child: Container(
-              width: double.infinity,
-              margin: margin.leftMargin,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _listTile(
-                          context,
-                          "Classes",
-                          Icons.home_outlined,
-                          () {},
+            SizedBox(
+              height: 1,
+            ),
+            Material(
+              child: Container(
+                width: double.infinity,
+                margin: margin.leftMargin,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _listTile(
+                            context,
+                            "Classes",
+                            Icons.home_outlined,
+                            () {},
+                          ),
+                          _listTile(
+                            context,
+                            "Calendar",
+                            Icons.calendar_today,
+                            () {},
+                          ),
+                          _listTile(
+                            context,
+                            "Notifications",
+                            Icons.notifications_none,
+                            () {},
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              elevation: 1,
+            ),
+            SizedBox(
+              height: 1,
+            ),
+            Material(
+              child: Container(
+                width: double.infinity,
+                margin: margin.topLeftMargin,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: margin.bottomtMargin,
+                      child: Text(
+                        "Enrolled",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Colors.grey[600],
+                          fontSize: 12,
                         ),
-                        _listTile(
-                          context,
-                          "Calendar",
-                          Icons.calendar_today,
-                          () {},
+                      ),
+                    ),
+                    _listTile(
+                      context,
+                      "To-do",
+                      Icons.fact_check_outlined,
+                      () {},
+                    ),
+                    ListTile(
+                      leading: Container(
+                        margin: EdgeInsets.fromLTRB(
+                          2,
+                          margin.marginUnit,
+                          0,
+                          margin.marginUnit,
                         ),
-                        _listTile(
-                          context,
-                          "Notifications",
-                          Icons.notifications_none,
-                          () {},
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-            elevation: 1,
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          Material(
-            child: Container(
-              width: double.infinity,
-              margin: margin.topLeftMargin,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: margin.bottomtMargin,
-                    child: Text(
-                      "Enrolled",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        color: Colors.grey[600],
-                        fontSize: 12,
+                        child: CircleAvatar(
+                          child: Text("M"),
+                        ),
                       ),
-                    ),
-                  ),
-                  _listTile(
-                    context,
-                    "To-do",
-                    Icons.fact_check_outlined,
-                    () {},
-                  ),
-                  ListTile(
-                    leading: Container(
-                      margin: EdgeInsets.fromLTRB(
-                        2,
-                        margin.marginUnit,
-                        0,
-                        margin.marginUnit,
+                      title: Text(
+                        "MIT 523: Advanced Web Tech...",
+                        style: TextStyle(fontWeight: FontWeight.w600),
                       ),
-                      child: CircleAvatar(
-                        child: Text("M"),
-                      ),
+                      subtitle: Text("MIT 3rd Batch"),
+                      contentPadding: EdgeInsets.zero,
+                      onTap: () {},
                     ),
-                    title: Text(
-                      "MIT 523: Advanced Web Tech...",
-                      style: TextStyle(fontWeight: FontWeight.w600),
+                  ],
+                ),
+              ),
+              elevation: 1,
+            ),
+            SizedBox(
+              height: 1,
+            ),
+            Material(
+              child: Container(
+                width: double.infinity,
+                margin: margin.leftMargin,
+                child: Column(
+                  children: [
+                    _listTile(
+                      context,
+                      "Archived classes",
+                      Icons.archive_outlined,
+                      () {},
                     ),
-                    subtitle: Text("MIT 3rd Batch"),
-                    contentPadding: EdgeInsets.zero,
-                    onTap: () {},
-                  ),
-                ],
+                    _listTile(
+                      context,
+                      "Classroom folder",
+                      Icons.folder_open,
+                      () {},
+                    ),
+                    _listTile(
+                      context,
+                      "Settings",
+                      Icons.settings_outlined,
+                      () {},
+                    ),
+                    _listTile(
+                      context,
+                      "Help",
+                      Icons.help_outline_outlined,
+                      () {},
+                    ),
+                  ],
+                ),
               ),
-            ),
-            elevation: 1,
-          ),
-          SizedBox(
-            height: 1,
-          ),
-          Material(
-            child: Container(
-              width: double.infinity,
-              margin: margin.leftMargin,
-              child: Column(
-                children: [
-                  _listTile(
-                    context,
-                    "Archived classes",
-                    Icons.unarchive_outlined,
-                    () {},
-                  ),
-                  _listTile(
-                    context,
-                    "Classroom folder",
-                    Icons.folder_open,
-                    () {},
-                  ),
-                  _listTile(
-                    context,
-                    "Settings",
-                    Icons.settings_outlined,
-                    () {},
-                  ),
-                  _listTile(
-                    context,
-                    "Help",
-                    Icons.help_outline_outlined,
-                    () {},
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:google_classroom/screens/create_class.dart';
+import 'package:google_classroom/screens/join_class.dart';
 
 class CurvedModalBottomSheet {
   BuildContext contex;
@@ -20,15 +23,29 @@ class CurvedModalBottomSheet {
                 topRight: Radius.circular(10),
               ),
             ),
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text("Create class"),
-                ),
-                ListTile(
-                  title: Text("Join class"),
-                )
-              ],
+            child: Center(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: ListTile(
+                      title: Text("Create class"),
+                      onTap: () {
+                        Get.back();
+                        Get.to(CreateClassScreen());
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: ListTile(
+                      title: Text("Join class"),
+                      onTap: () {
+                        Get.back();
+                        Get.to(JoinClassScreen());
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         );

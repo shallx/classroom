@@ -15,6 +15,7 @@ ThemeData customTheme(ThemeProfile prof) {
 
     return ThemeData(
       scaffoldBackgroundColor: _backgroundColor,
+      backgroundColor: _backgroundColor,
       appBarTheme: AppBarTheme(
         color: _backgroundColor,
         textTheme: TextTheme(
@@ -44,23 +45,14 @@ ThemeData customTheme(ThemeProfile prof) {
 }
 
 class StyleSheet {
-  double _marginUnit;
-  StyleSheet([this._marginUnit = 15]);
-
-  // double get marginUnit => _marginUnit;
-  // EdgeInsets get leftMargin => EdgeInsets.only(left: _marginUnit);
-  // EdgeInsets get bottomtMargin => EdgeInsets.only(bottom: _marginUnit);
-  // EdgeInsets get topMargin => EdgeInsets.only(top: _marginUnit);
-  // EdgeInsets get topLeftMargin =>
-  //     EdgeInsets.only(top: _marginUnit, left: _marginUnit);
-  // EdgeInsets get verticalMargin => EdgeInsets.symmetric(vertical: _marginUnit);
-  // EdgeInsets get horizontalMargin =>
-  //     EdgeInsets.symmetric(horizontal: _marginUnit);
-  // EdgeInsets get allMargin => EdgeInsets.all(_marginUnit);
+  StyleSheet();
 
   Margin margin([double margin = 15]) {
     return Margin(margin);
   }
+
+  TextStyle get greyTextStyle =>
+      TextStyle(fontSize: 13, color: Colors.grey.shade600);
 }
 
 class Margin {

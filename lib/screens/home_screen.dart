@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_classroom/libraries/themedata.dart';
+import 'package:google_classroom/screens/classroom_screen.dart';
+import 'package:google_classroom/screens/join_class.dart';
+import 'package:google_classroom/screens/people_screen.dart';
 import 'package:google_classroom/widgets/drawer.dart';
 import 'package:google_classroom/widgets/show_modal_bottom_sheet.dart';
 
@@ -16,9 +20,22 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Google Classroom"),
         actions: [
           CircleAvatar(),
-          IconButton(
-            icon: Icon(Icons.more_vert),
-            onPressed: () {},
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: Text("Refresh"),
+                  value: "refresh",
+                ),
+                PopupMenuItem(
+                  child: Text("Send Google Feedback"),
+                  value: "New broadcast",
+                ),
+              ];
+            },
           ),
         ],
       ),
@@ -44,13 +61,27 @@ class _HomeScreenState extends State<HomeScreen> {
                             "MIT 523: Advanced Web Tech...",
                             style: TextStyle(fontSize: 21, color: Colors.white),
                           ),
-                          IconButton(
+                          PopupMenuButton<String>(
                             icon: Icon(
                               Icons.more_vert,
                               color: Colors.white,
                             ),
-                            onPressed: () {},
-                            padding: EdgeInsets.all(0),
+                            padding: EdgeInsets.zero,
+                            onSelected: (value) {
+                              print(value);
+                            },
+                            itemBuilder: (context) {
+                              return [
+                                PopupMenuItem(
+                                  child: Text("Unenroll"),
+                                  value: "unenroll",
+                                ),
+                                PopupMenuItem(
+                                  child: Text("Report abuse"),
+                                  value: "report",
+                                ),
+                              ];
+                            },
                           ),
                         ],
                       ),
@@ -75,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 onTap: () {
-                  print("Hello world");
+                  Get.to(() => PeopleScreen());
                 },
               ),
             ),

@@ -17,6 +17,7 @@ dependencies:
   http:
   dio: ^4.0.0
   flash: ^1.5.1
+  url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_test:
