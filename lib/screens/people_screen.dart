@@ -1,8 +1,10 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_classroom/data/students.dart';
 import 'package:google_classroom/libraries/themedata.dart';
+import 'package:google_classroom/widgets/bottom_nav.dart';
 import 'package:google_classroom/widgets/drawer.dart';
 
 class PeopleScreen extends StatefulWidget {
@@ -27,28 +29,14 @@ class _PeopleScreenState extends State<PeopleScreen> {
               color: Colors.grey.shade700,
             ),
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              Get.back();
+            },
           ),
         ],
       ),
       drawer: ClassRoomDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer_outlined),
-            label: "Stream",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event_note),
-            label: "Classwork",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: "People",
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNav(index: 2),
       body: ListView(
         padding: margin.allMargin,
         children: [

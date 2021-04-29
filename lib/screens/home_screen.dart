@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_classroom/libraries/themedata.dart';
-import 'package:google_classroom/screens/classroom_screen.dart';
-import 'package:google_classroom/screens/join_class.dart';
-import 'package:google_classroom/screens/people_screen.dart';
+import 'package:google_classroom/screens/stream_screen.dart';
 import 'package:google_classroom/widgets/drawer.dart';
 import 'package:google_classroom/widgets/show_modal_bottom_sheet.dart';
 
@@ -106,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 onTap: () {
-                  Get.to(() => PeopleScreen());
+                  Get.to(() => StreamScreen());
                 },
               ),
             ),

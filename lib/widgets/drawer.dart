@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:google_classroom/libraries/themedata.dart'
     show Margin, StyleSheet;
+import 'package:google_classroom/screens/home_screen.dart';
 import 'package:google_classroom/widgets/google_logo.dart';
 
 class ClassRoomDrawer extends StatelessWidget {
@@ -21,7 +23,9 @@ class ClassRoomDrawer extends StatelessWidget {
         style: TextStyle(fontWeight: FontWeight.w600),
       ),
       contentPadding: EdgeInsets.zero,
-      onTap: () => onPressed,
+      onTap: () {
+        onPressed();
+      },
     );
   }
 
@@ -61,13 +65,18 @@ class ClassRoomDrawer extends StatelessWidget {
                             context,
                             "Classes",
                             Icons.home_outlined,
-                            () {},
+                            () {
+                              print("Getting to homescreen");
+                              Get.offAll(HomeScreen());
+                            },
                           ),
                           _listTile(
                             context,
                             "Calendar",
                             Icons.calendar_today,
-                            () {},
+                            () {
+                              // TODO:implement notifications
+                            },
                           ),
                           _listTile(
                             context,

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_classroom/libraries/themedata.dart';
+import 'package:google_classroom/widgets/bottom_nav.dart';
 import 'package:google_classroom/widgets/drawer.dart';
 
-class ClassroomScreen extends StatefulWidget {
-  ClassroomScreen({Key? key}) : super(key: key);
+class StreamScreen extends StatefulWidget {
+  StreamScreen({Key? key}) : super(key: key);
 
   @override
-  _ClassroomScreenState createState() => _ClassroomScreenState();
+  _StreamScreenState createState() => _StreamScreenState();
 }
 
-class _ClassroomScreenState extends State<ClassroomScreen> {
+class _StreamScreenState extends State<StreamScreen> {
   Margin margin = StyleSheet().margin();
   @override
   Widget build(BuildContext context) {
@@ -35,23 +36,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
         ],
       ),
       drawer: ClassRoomDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.question_answer_outlined),
-            label: "Stream",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event_note),
-            label: "Classwork",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: "People",
-          ),
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNav(index: 0),
       body: ListView(
         padding: margin.allMargin,
         children: [
